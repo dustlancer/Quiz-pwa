@@ -22,6 +22,7 @@ body {
 
 .container-fluid {
   flex: 1 1 auto;
+  width: 100%; /**?????????*/
 }
 
 .glassy {
@@ -42,4 +43,47 @@ body {
 
 .incorrect-answer {
   background: rgb(229, 98, 98);
+}
+
+@keyframes fadeIn {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 0.9;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes zoom {
+  0% {
+    scale: 1;
+  }
+  100% {
+    scale: 1.01;
+  }
+}
+
+
+.fade-in {
+  animation: fadeIn .3s ease-in;
+  animation-fill-mode: forwards;  
+}
+
+.fade-out {
+  animation: fadeOut .3s ease-in;
+  animation-fill-mode: forwards;  
+}
+
+.zoom {
+  animation: zoom .3s ease-in;
+  animation-fill-mode: forwards;  
 }

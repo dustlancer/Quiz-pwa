@@ -19,28 +19,33 @@
   </script>
 </head>
 <body>
-  <div class="wrapper flex flex-col h-screen">
+  <div id="wrapper" class="wrapper flex flex-col h-screen">
     <div class="top-bar flex flex-row items-center justify-between p-3">
       <a href="./ret.html">
         <button class="leave-button">
           <svg width="40px" height="40px" fill="#FFFF" version="1.1" viewBox="0 0 299.02 299.02" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><path d="m292.87 254.43c-2.288 0-4.443-1.285-5.5-3.399-0.354-0.684-28.541-52.949-146.17-54.727v51.977c0 2.342-1.333 4.48-3.432 5.513-2.096 1.033-4.594 0.793-6.461-0.63l-128.89-98.774c-1.519-1.165-2.417-2.967-2.417-4.876 0-1.919 0.898-3.72 2.417-4.888l128.89-98.77c1.87-1.426 4.365-1.667 6.461-0.639 2.099 1.026 3.432 3.173 3.432 5.509v54.776c3.111-0.198 7.164-0.37 11.947-0.37 43.861 0 145.87 13.952 145.87 143.14 0 2.858-1.964 5.344-4.75 5.993-0.469 0.121-0.931 0.169-1.405 0.169z"/>	
           </svg>
         </button>
+        
       </a>
+      <button class="bebra">stest</button>
+      
     </div>
-    <div class="question-block flex flex-col items-center justify-center border-b-1 border-white py-[55px]">
-        <!-- <p class="text-white font-light text-lg">Вопрос <span id="question-number">5</span> из <span id="total-questions">20</span></p>
-        <div class="question text-3xl text-white font-bold text-center px-5">В каком году крестили Русь?</div>
-       -->
-    </div>
-    <div class="answer-options overflow-y-scroll container-fluid"  >
-      <div class="answer-option flex rounded-lg border font-medium text-white border-1 border-cyan-300 p-3 m-3">
-        <b class="answer-mark">A.</b><p class="answer-text ml-2">Это один вариант ответа один вариант ответа один вариант ответа один вариант ответа</p>
+    <div class="gamecontainer" id="gamecontainer">
+      <div class="question-block flex flex-col items-center justify-center border-b-1 border-white py-[55px]">
+          <!-- <p class="text-white font-light text-lg">Вопрос <span id="question-number">5</span> из <span id="total-questions">20</span></p>
+          <div class="question text-3xl text-white font-bold text-center px-5">В каком году крестили Русь?</div>
+        -->
       </div>
+      <div class="answer-options overflow-y-scroll container-fluid">
+        <!-- <div class="answer-option flex rounded-lg border font-medium text-white border-1 border-cyan-300 p-3 m-3">
+          <b class="answer-mark">A.</b><p class="answer-text ml-2">Это один вариант ответа один вариант ответа один вариант ответа один вариант ответа</p>
+        </div> -->
 
+      </div>
     </div>
   </div>
   <script src="resources/js/switchery/switchery.js"></script>
   <script type="module" src="resources/js/main.js"></script>
-  <script src="resources/js/question-card.js"></script>
+  <!-- <script src="resources/js/question-card.js"></script> -->
 </body>
