@@ -13,13 +13,9 @@ function Answer(parent, text, id) {
                 answer_ind: this.id,
             }
         }));
-        
-        
-
     };
 
     this.displayCorrectOrNot = function(isCorrect) {
-        console.log(isCorrect);
         if (isCorrect===true) {
             this.component.classList.add('correct-answer');
         } else {

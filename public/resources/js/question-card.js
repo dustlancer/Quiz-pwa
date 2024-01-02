@@ -41,7 +41,6 @@ function QuestionCard(parent, question, total_questions, index) {
         this.parent.appendChild(questions_c);
         this.question_component = question;
         this.questions_c = questions_c;
-        console.log(this.question)
         this.parent.appendChild(question);
         
         
