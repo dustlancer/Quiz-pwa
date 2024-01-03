@@ -23,8 +23,19 @@ function Quiz(questions) {
     
     this.initEventListeners = () => {
 
-        window.addEventListener("answer", (e) => {
-            console.log('['+ this.stamp +']: you answered ' + this.question_ind + " of " + this.questions.length);
+        window.addEventListener("answer", (e) => this.handleAnswerEvent(e));
+
+
+        window.addEventListener('restart', (e) => {
+            alert('quiz will be restarted');
+            this.cleanScreen();
+            this.startQuiz();
+        });
+    }
+
+    this.handleAnswerEvent = (e) => {
+        if (this.stamp === '') {return;}
+        console.log('['+ this.stamp +']: you answered ' + this.question_ind + " of " + this.questions.length);
             let chosen_answer_ind = e.detail.answer_ind;
             let answerIsCorrect = (chosen_answer_ind === this.questions[this.question_ind].correct_answer_index);
             this.answers[chosen_answer_ind].displayCorrectOrNot(answerIsCorrect);
@@ -36,10 +47,11 @@ function Quiz(questions) {
             
         
             if(this.question_ind+1 === this.questions.length) {
-                console.log(this.stamp + "---> " + (this.question_ind+1) + '/' + this.questions.length);
+                // console.log(this.stamp + "---> " + (this.question_ind+1) + '/' + this.questions.length);
+                this.stamp = '';
                 this.cleanScreen();
                 setTimeout(() => {
-                    let res = new Results(wrapper, this.answersAreCorrect);
+                    let res = new Results(wrapper, this.answersAreCorrect, this);
                     res.render();
                 }, 700);
                 return;
@@ -54,14 +66,6 @@ function Quiz(questions) {
                 },500);
         
             }, 2000);
-        });
-
-
-        window.addEventListener('restart', (e) => {
-            alert('quiz will be restarted');
-            this.cleanScreen();
-            this.startQuiz();
-        });
     }
 
 
@@ -114,7 +118,7 @@ function Quiz(questions) {
         let question_block = document.createElement('div');
         question_block.className = 'question-block flex flex-col items-center justify-center border-b-1 border-white py-[55px]';
         let answer_options = document.createElement('div');
-        answer_options.className = 'answer-options overflow-y-scroll container-fluid';
+        answer_options.className = 'mx-3 h-full flex flex-col items-center pt-3 px-3 overflow-auto justify-start border-b-1 border-white text-white w-full';
         wrapper.appendChild(question_block);
         wrapper.appendChild(answer_options);
 
@@ -123,7 +127,6 @@ function Quiz(questions) {
         question_card.render();
         this.answer_options = answer_options;
         this.displayAnswers(answer_options);
-        
     }
 
 

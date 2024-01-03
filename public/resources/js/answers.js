@@ -25,7 +25,8 @@ function Answer(parent, text, id) {
 
     this.render = function(){
         let answer_card = document.createElement("div");
-        answer_card.classList.add('answer-option', 'flex', 'rounded-lg', 'border', 'font-medium', 'text-white', 'border-1', 'border-cyan-300', 'p-3', 'm-3', 'fade-in');
+        answer_card.className = ('answer-option glassy flex flex-row items-center justify-between w-full p-3 px-5 my-1');
+        
         
         let answer_text = document.createElement("p");
         answer_text.classList.add('answer-text', 'ml-2');
