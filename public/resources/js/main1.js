@@ -1,9 +1,9 @@
 // 'use strict';
 
 
-
-import { QuizList } from "./quizlist.js";
+import { HomeScreen } from "./home-screen.js";
 import { LoginCard } from "./login.js";
+import { ProfileScreen } from "./components/profile/profile.js";
 
 
 const SCREEN_WIDTH = window.innerWidth;
@@ -420,10 +420,6 @@ let quizes_list = [
 
 
 
-
-
-
-
 let cleanScreen = () => {
     wrapper.classList.add('fade-out');
     setTimeout(() => {
@@ -434,9 +430,7 @@ let cleanScreen = () => {
 
 
 let forAuthenticated = () => {
-    let _list = new QuizList(wrapper, quizes_list);
-    _list.initEventListeners();
-    _list.render();
+    let home_screen = new HomeScreen(wrapper, quizes_list);
 
 }
 
@@ -449,16 +443,61 @@ window.addEventListener('login_success', () => {
 
 
 
+sessionStorage.removeItem("username");
 
-let lc = new LoginCard(wrapper);
-
-lc.render();
-
-// let q = new Quiz(quiz1);
-// q.startQuiz();
+// router 
 
 
-// // -----------
+window.addEventListener('change_route', (e)=> {
+    cleanScreen();
+    setTimeout(() => {
+        if (sessionStorage.getItem("username")) {
+            switch (e.detail.route)  {
+                case 'home':
+                    let home_screen = new HomeScreen(wrapper, quizes_list);
+                    break;
+                case 'profile':
+                    let profile_screen = new ProfileScreen(wrapper);
+                    break;
+                case 'about':
+                    alert('route set to about');
+                    break;
+                default:
+                    alert('route not found');
+            }
+        } else {
+            let login_screen = new LoginCard(wrapper);
+        }
+        
+    }, 500);
+})
+
+
+let forNonAuthenticated = () => {
+    let cont = document.createElement('div');
+    let heading = document.createElement('div');
+    heading.textContent = 'Вы не авторизованы. Войти.'
+    
+
+    heading.addEventListener('click', ()=> {
+        cleanScreen();
+        setTimeout(() => {
+            let lc = new LoginCard(wrapper);
+            lc.render();
+        }, 500);
+    })
+    wrapper.append(heading);
+}
+
+
+// sessionStorage.removeItem("username");
+// if (sessionStorage.getItem("username")) {
+//     // Restore the contents of the text field
+//     // alert(sessionStorage.getItem("username"));
+//     forAuthenticated();
+// } else {
+//     forNonAuthenticated();
+// }
 
 
 
@@ -470,15 +509,16 @@ lc.render();
 
 
 
-
-// startQuiz();
-
+forAuthenticated();
 
 
+// window.location.href = './ret.html';
 
 
 
-// let todoSubmit = document.querySelector('.todoSubmit');
-// let todos = document.querySelector('.todos');
+
+
+
+
 
 

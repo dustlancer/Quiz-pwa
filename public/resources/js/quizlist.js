@@ -25,17 +25,19 @@ function QuizList(parent, quizes_list) {
     }
 
     this.render = () => {
-        let header = document.createElement('div');
-        header.className = 'top-bar flex flex-row items-center justify-center font-bold text-white text-3xl p-5';
-        header.textContent = 'Квизы';
+
+
+        let quizlist_header = document.createElement('div');
+        quizlist_header.className = 'top-bar flex flex-row items-center justify-center font-medium text-white text-2xl p-3 py-0 -mt-5';
+        quizlist_header.textContent = 'Каталог';
         let quiz_list = document.createElement('div');
         quiz_list.className = 'mx-3 h-full flex flex-col items-center justify-center border-b-1 border-white text-white';
         
         
 
-        this.parent.appendChild(header);
+        this.parent.appendChild(quizlist_header);
         let quiz_list_c = document.createElement('div');
-        quiz_list_c.className = 'mx-3 h-full flex flex-col items-center pt-3 px-3 overflow-auto justify-start border-b-1 border-white text-white w-full';
+        quiz_list_c.className = 'mx-3 h-full flex flex-col items-center pt-0 px-3 overflow-auto justify-start border-b-1 border-white text-white w-full';
 
     
         for (let i = 0; i < this.quizes.length; i++) {

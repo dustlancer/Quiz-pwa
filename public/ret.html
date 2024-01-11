@@ -7,8 +7,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- <script src="https://cdn.tailwindcss.com"></script> -->
   <link rel="stylesheet" href="resources/css/reset.css">
+  <link rel="stylesheet" href="resources/css/tailwind.min.css">
   <link rel="stylesheet" href="resources/css/style.css">
   <link rel="stylesheet" href="resources/css/switchery/switchery.css" />
 
@@ -20,26 +21,30 @@
   </script>
 </head>
 <body>
-  <div id="wrapper" class="wrapper flex flex-col h-screen">
-    <div class="top-bar flex flex-row items-center justify-center font-bold text-white text-3xl p-5">
-      Результат
+  <div id="wrapper" class="app flex flex-col h-screen">
+    <div class="header flex flex-row items-center justify-between font-bold text-white text-3xl p-5">
+      <img src="./resources/images/profile-icon.png" class="h-16 p-3 glassy" alt="profile">
+      <img src="./resources/images/info-icon.png" class="h-16 p-3 glassy" alt="profile">
+    </div>
+    
+    <div class="text-white m-3 font-medium text-2xl mb-0">Новые викторины</div>
+    <div class="cards-carousel flex flex-row overflow-x-auto py-5">
+      <div class="card glassy relative m-3 mx-2">
+        <img src="./resources/images/sport1.jpg" class="card-image" alt="">
+        <div class="card-text">Математические задачи</div>
+      </div>
+      <div class="card glassy relative m-3 mx-2">
+        <img src="./resources/images/sport1.jpg" class="card-image" alt="">
+        <div class="card-text">Математические задачи</div>
+      </div>
+      <div class="card glassy relative m-3 mx-2">
+        <img src="./resources/images/sport1.jpg" class="card-image" alt="">
+        <div class="card-text">Математические задачи</div>
+      </div>
+      
+      
     </div>
     <!--  -->
-    <div class="question-block glassy mx-3 min-h-[70%] flex flex-col items-center justify-center border-b-1 border-white">
-        <div class="result-phrase text-3xl text-white font-bold text-center px-5">Превосходно!</div>
-        <p class="quote text-white font-light text-lg">Учение свет а не учение я не знаю что</p>
-        <span class="result text-5xl flex flex-row text-white font-bold text-center my-7">
-          <p class="correct-answers-count">15</p>/<p class="global-questions-count">20</p>
-        </span>
-    </div>
-    <div class="answer-options container-fluid flex flex-row items-center justify-center font-medium text-2xl">
-      <div class="answer-option flex rounded-lg border justify-center font-medium text-white border-1 border-cyan-300 p-3 m-3 w-1/2">
-        <p class="share-result">Поделиться</p>
-      </div>
-      <button class="answer-option flex rounded-lg border justify-center font-medium bg-transparent text-white border-1 border-cyan-300 p-3 m-2 w-1/2 active:bg-red-500 transition-colors">
-        <p class="back-to-menu">В меню</p>
-      </button>
-    </div>
   </div>
   <script src="resources/js/switchery/switchery.js"></script>
   <script src="resources/js/main.js"></script>

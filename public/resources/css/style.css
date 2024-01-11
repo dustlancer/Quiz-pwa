@@ -5,6 +5,17 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
+
+/* hiding scrollbars */
+@media screen and (max-width: 768px){
+  ::-webkit-scrollbar {
+      -webkit-appearance: none;
+  }
+}
+.scrollable-content::-webkit-scrollbar {
+  display: none;
+}
+
 .app {
   background: rgb(130,105,246);
   background: -moz-radial-gradient(circle, rgba(130,105,246,1) 0%, rgba(17,48,249,1) 100%);
@@ -18,6 +29,14 @@ body {
     display: flex;
     flex-flow: column;
     height: 100%;
+}
+.auth-card {
+  min-width: 95%;
+}
+
+.auth-input {
+  background: rgba(rgb(175, 205, 236), green, blue, .4);
+  padding: 5px;
 }
 
 .container-fluid {
@@ -35,6 +54,48 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
+/* home dcreen  */
+
+/* carousel with cards */
+/*   flex flex-row overflow-x-auto py-5 */
+.cards-carousel {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  padding-top: 0px;
+  padding-bottom: 20px;
+}
+/*  glassy relative m-3 mx-2 */
+
+.new-quiz-card {
+  position: relative;
+  margin: 0px;
+  margin-left: 8px;
+  margin-right: 8px;
+  padding: 0;
+}
+
+.card-image {
+  margin: 0px;
+  object-fit: cover;
+  height: 200px;
+  width: 300px;
+  min-width: 300px;
+  border-radius: 16px;
+  opacity: .8;
+}
+
+.card-text {
+  position: absolute;
+  bottom: 0;
+  border-radius: 0 0 16px 16px;
+  color: white;
+  background-color: rgba(0, 115, 255, 0.816);
+  padding: 25px;
+  width: 100%;
+  font-weight: 500;
+  font-size: 20px;
+}
 
 
 .correct-answer {
@@ -43,6 +104,10 @@ body {
 
 .incorrect-answer {
   background: rgb(229, 98, 98);
+}
+
+.emoji-res {
+  font-size: 120px;
 }
 
 @keyframes fadeIn {

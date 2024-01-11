@@ -58,7 +58,7 @@ function Results(parent, answers_are_correct, quiz_cl) {
 
         let emoji_mark = document.createElement('div');
         emoji_mark.textContent = this.result_rate.emoji;
-        emoji_mark.className = 'text-[120px]';
+        emoji_mark.className = 'emoji-res';
 
 
         let actions_block = document.createElement('div');
@@ -68,14 +68,16 @@ function Results(parent, answers_are_correct, quiz_cl) {
         share_button.className = 'flex rounded-lg border justify-center font-medium text-white border-1 border-cyan-300 p-3 m-3 w-1/2';
         share_button.textContent = 'Поделиться';
 
-        let to_menu_button = document.createElement('div');
-        to_menu_button.className = 'flex rounded-lg border justify-center font-medium text-white border-1 border-cyan-300 p-3 m-3 w-1/2';
-        to_menu_button.textContent = 'В меню';
-        to_menu_button.addEventListener('click', ()=> {
-            console.log(window.q);
-            delete window.q;
-            console.log(window.q); // ????????
-            window.dispatchEvent(new CustomEvent("show_quiz_list"));
+
+        let go_home_button = document.createElement('div');
+        go_home_button.className = 'flex rounded-lg border justify-center font-medium text-white border-1 border-cyan-300 p-3 m-3 w-1/2';
+        go_home_button.textContent = 'Домой';
+        go_home_button.addEventListener('click', ()=> {
+            window.dispatchEvent(new CustomEvent("change_route", {
+              detail: {
+                  route: "home",
+              }
+            }));
         });
 
         let restart_button = document.createElement('div');
@@ -83,7 +85,7 @@ function Results(parent, answers_are_correct, quiz_cl) {
         restart_button.textContent = 'Перезапустить';
         
         actions_block.appendChild(share_button);
-        actions_block.appendChild(to_menu_button);
+        actions_block.appendChild(go_home_button);
         // actions_block.appendChild(restart_button);
 
         emoji_comment.appendChild(emoji_mark);
